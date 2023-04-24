@@ -16,7 +16,7 @@ cursor.execute("""
         id INT AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(45),
         email VARCHAR(45),
-        senha VARCHAR(8),
+        senha VARCHAR(100),
         data_nascimento VARCHAR(45),
         cpf VARCHAR(11), 
         rg VARCHAR(20)

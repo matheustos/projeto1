@@ -38,6 +38,7 @@ def buscar(tabela):
     comando_leitor = f"SELECT * FROM {tabela}"
     cursor.execute(comando_leitor)
     resultado = cursor.fetchall()
+    return resultado
 
 def checa_senha(parametro_json):
     comando_leitor = f"SELECT senha FROM cadastro WHERE email = '{parametro_json}'" 

@@ -1,19 +1,8 @@
 from flask import Flask, request, jsonify, redirect, url_for
-import bcrypt
 import models
 import hashlib
 
 app = Flask(__name__)
-
-# Função para criar hash de senha com salting
-def criar_hash_senha(senha):
-    salt = bcrypt.gensalt()  # Gera um novo salt
-    hashed_senha = bcrypt.hashpw(senha.encode('utf-8'), salt)  # Gera o hash da senha
-    return hashed_senha.decode('utf-8')
-
-# Função para verificar se uma senha corresponde a um hash
-def verificar_senha(senha, hashed_senha):
-    return bcrypt.checkpw(senha.encode('utf-8'), hashed_senha.encode('utf-8'))
 
 
 @app.route('/cadastro', methods = ['POST'])
@@ -38,14 +27,7 @@ def login():
     except:
         return jsonify({"message": "Email inválido!"})
     else:
-        senha = $2b$12$.
-        # Decodificar a senha criptografada do banco de dados
-        senha_criptografada_bytes = senha.encode()
-        if bcrypt.checkpw(dados_login['senha'].encode(), senha_criptografada_bytes):
-            return "Senha correta"
-        else:
-            return "Senha incorreta!"
-
+        pass
 
 
 if __name__ == '__main__':

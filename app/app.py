@@ -24,9 +24,12 @@ def login():
     email = dados_login['email']
     senha = dados_login['senha']
     hash_senha_login = sha256(senha.encode('utf-8')).hexdigest() # criptografa senha passada no login para comparar com a que está no bd
-  
-    resultado = models.checa_senha(parametro_json=email)   
-    senha_armazenada = resultado[0]
+    
+    resultado = models.checa_senha(parametro_json=email) 
+    if resultado is None:
+        return jsonify({"message": "Email inválido"}) # resposta caso o email não conste no bd
+    else:
+        senha_armazenada = resultado[0]
 
     if hash_senha_login == senha_armazenada:
         return jsonify({"message": "Senha válida"})
